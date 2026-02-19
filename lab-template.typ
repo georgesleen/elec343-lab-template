@@ -67,8 +67,6 @@
   // Global document settings
   set page(
     paper: paper,
-    numbering: "1",
-    number-align: right,
   )
   set text(font: font, size: font_size)
   set par(justify: true)
