@@ -53,7 +53,7 @@
   date_submitted: datetime.today(),
 
   // Overrides
-  paper: "a4",
+  paper: "us-letter",
   font: "New Computer Modern",
   font_size: 10pt,
 ) = {
