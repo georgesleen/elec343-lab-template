@@ -13,28 +13,29 @@
 ) = {
   // Title page layout
   box(width: 100%, height: 100%)[
-    align(center + horizon)[
+    #align(center + horizon)[
     #title[#course]
     Lab \##lab_number
     #if section_number != "" { [Section: #section_number] }
     #if bench_number != none { [Bench \##bench_number] }
     ]
 
-    table(
+    #table(
     columns: (1fr, 1fr, 1fr, 1fr),
     [Partners], [Student ID \#:], [% Participation], [Signatures],
 
-    ..authors
-    .map(a => (
-    [#a.name],
-    [#a.student_number],
-    [#calc.round(a.percent_participation, digits: 1)],
-    [#a.name], // or [] for blank signatures
+    ..(
+    authors.map(a => (
+    a.name,
+    a.student_number,
+    str(calc.round(a.percent_participation, digits: 1)),
+    a.name,
     ))
-    .flatten(),
+    .flatten()
+    ),
     )
 
-    align(left + bottom)[
+    #align(left + bottom)[
     Date Performed: #date_performed.display()
     \
     Date Submitted: #date_submitted.display()
